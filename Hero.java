@@ -10,15 +10,16 @@ public class Hero extends Mover {
     private final double gravity;
     private final double acc;
     private final double drag;
-
     public Hero() {
         super();
         gravity = 9.8;
         acc = 0.6;
         drag = 0.8;
         setImage("p1.png");
+        setLocation(300, 200);
+   
     }
-
+    
     @Override
     public void act() {
         handleInput();
@@ -32,14 +33,16 @@ public class Hero extends Mover {
 
         for (Actor enemy : getIntersectingObjects(Enemy.class)) {
             if (enemy != null) {
-                getWorld().removeObject(this);
+                //getWorld().removeObject(this);
+                setLocation(300,200);
                 break;
             }
         }
+            
     }
 
     public void handleInput() {
-        if (Greenfoot.isKeyDown("w")) {
+        if (Greenfoot.isKeyDown("space")) {
             velocityY = -10;
         }
 
