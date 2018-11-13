@@ -263,11 +263,11 @@ tile.isSolid = false;
 break;
 case 62:
 tile=new Tile("fence.png",TileEngine.TILE_WIDTH,TileEngine.TILE_HEIGHT);
-tile.isSolid = true;
+tile.isSolid = false;
 break;
 case 63:
 tile=new Tile("fenceBroken.png",TileEngine.TILE_WIDTH,TileEngine.TILE_HEIGHT);
-tile.isSolid = true;
+tile.isSolid = false;
 break;
 case 64:
 tile=new Tile("grass.png",TileEngine.TILE_WIDTH,TileEngine.TILE_HEIGHT);
