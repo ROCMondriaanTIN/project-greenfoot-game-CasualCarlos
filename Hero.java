@@ -17,7 +17,7 @@ public class Hero extends Mover {
         acc = 0.6;
         drag = 0.8;
         setImage("p1.png");
-        setLocation(300, 200);
+        setLocation(387, 1573);
    
     }
     
@@ -34,11 +34,16 @@ public class Hero extends Mover {
         for (Actor enemy : getIntersectingObjects(Enemy.class)) {
             if (enemy != null) {
                 //getWorld().removeObject(this);
-                setLocation(300,200);
+                setLocation(385,1573);
                 break;
             }
         }
             
+    }
+    
+    public String getPosition() {
+        String retval = "X: " + this.getX() +" Y: " + this.getY();
+        return retval;
     }
     public int addCoin(){
          if(isTouching(coinBronze.class)){
@@ -53,9 +58,9 @@ public class Hero extends Mover {
         }
 
         if (Greenfoot.isKeyDown("a")) {
-            velocityX = -2;
+            velocityX = -4;
         } else if (Greenfoot.isKeyDown("d")) {
-            velocityX = 2;
+            velocityX = 4;
         }
     }
 

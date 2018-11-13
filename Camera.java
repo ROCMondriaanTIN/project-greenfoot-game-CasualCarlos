@@ -64,6 +64,7 @@ public class Camera extends Actor {
         this.followActor = mover;
     }
 
+    
     @Override
     public void act() {
         dirX *= cameraDrag;
