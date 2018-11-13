@@ -10,6 +10,7 @@ public class Hero extends Mover {
     private final double gravity;
     private final double acc;
     private final double drag;
+    public int coin;
     public Hero() {
         super();
         gravity = 9.8;
@@ -23,14 +24,13 @@ public class Hero extends Mover {
     @Override
     public void act() {
         handleInput();
-        
+        addCoin();
         velocityX *= drag;
         velocityY += acc;
         if (velocityY > gravity) {
             velocityY = gravity;
         }
         applyVelocity();
-
         for (Actor enemy : getIntersectingObjects(Enemy.class)) {
             if (enemy != null) {
                 //getWorld().removeObject(this);
@@ -40,7 +40,13 @@ public class Hero extends Mover {
         }
             
     }
-
+    public int addCoin(){
+         if(isTouching(coinBronze.class)){
+            removeTouching(coinBronze.class);
+            coin ++;
+        }
+        return coin;
+    }
     public void handleInput() {
         if (Greenfoot.isKeyDown("space")) {
             velocityY = -10;
