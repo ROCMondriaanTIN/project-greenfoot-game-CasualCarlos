@@ -19,7 +19,7 @@ public class Hero extends Mover {
         drag = 0.8;
         setImage("p1.png");
         setLocation(387, 1573);
-   
+        
     }
     
     @Override
@@ -39,15 +39,17 @@ public class Hero extends Mover {
                 break;
             }
         }
-            
-    }
-    public void check() {
-        for(Actor hero : getIntersectingObjects(door.class)) {
-            if(coin == 5 && isTouching(door.class)){      
-            Greenfoot.setWorld(new MyWorld2());
-    }
-        }
-    }
+        for (Actor door : getIntersectingObjects(Door.class)) {
+            if ((door != null) && (coin == 5)) {
+                //getWorld().removeObject(this);
+                Greenfoot.setWorld(new MyWorld2());
+                String activeWorld = "MyWorld2";
+                break;
+            }
+        }    
+        
+}
+
     public String getPosition() {
         String retval = "X: " + this.getX() +" Y: " + this.getY();
         return retval;
@@ -59,11 +61,7 @@ public class Hero extends Mover {
         }
         return coin;
     }
-        public void passThrough(){
-    if(coin == 5 && isTouching(doorTop.class)){      
-            Greenfoot.setWorld(new MyWorld2());
-    }
-}
+    
     public void handleInput() {
         for(Actor hero : getIntersectingObjects(Tile.class)) {
         if (Greenfoot.isKeyDown("space")) {

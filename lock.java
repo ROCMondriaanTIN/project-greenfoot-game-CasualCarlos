@@ -12,10 +12,11 @@ public class lock extends Mover
      * Act - do whatever the lock wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    boolean isSolid = false;
     public void act() 
     {
-        isSolid = true;
+        if(isTouching(Hero.class)){
+
+        }
         applyVelocity();
     }    
 }
