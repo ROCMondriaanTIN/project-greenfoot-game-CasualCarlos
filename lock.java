@@ -14,9 +14,6 @@ public class lock extends Mover
      */
     public void act() 
     {
-        if(isTouching(Hero.class)){
-
-        }
         applyVelocity();
     }    
 }

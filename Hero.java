@@ -12,6 +12,8 @@ public class Hero extends Mover {
     private final double drag;
     public int coin;
     public boolean inAir;
+    public static int x = 397;
+    public static int y = 3733;
     public Hero() {
         super();
         gravity = 9.8;
@@ -32,13 +34,13 @@ public class Hero extends Mover {
             velocityY = gravity;
         }
         applyVelocity();
-        for (Actor enemy : getIntersectingObjects(Enemy.class)) {
+        /*for (Actor enemy : getIntersectingObjects(Enemy.class)) {
             if (enemy != null) {
                 //getWorld().removeObject(this);
-                setLocation(385,1573);
+                setLocation(x,y);
                 break;
             }
-        }
+        }*/
         for (Actor door : getIntersectingObjects(Door.class)) {
             if ((door != null) && (coin == 5)) {
                 //getWorld().removeObject(this);
@@ -49,7 +51,15 @@ public class Hero extends Mover {
         }    
         
 }
-
+    public void checkpoint()
+    {
+    if(isTouching(lock.class))  
+    {  
+    this.x = getX();
+    this.y = getY();
+    setLocation(x,y);
+}
+    }
     public String getPosition() {
         String retval = "X: " + this.getX() +" Y: " + this.getY();
         return retval;
@@ -66,7 +76,7 @@ public class Hero extends Mover {
         for(Actor hero : getIntersectingObjects(Tile.class)) {
         if (Greenfoot.isKeyDown("space")) {
             inAir = true;
-            velocityY = -15;
+            velocityY = -17;
         }
         else{
             inAir = false;
