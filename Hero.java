@@ -1,6 +1,5 @@
 
 import greenfoot.*;
-
 /**
  *
  * @author R. Springer
@@ -12,8 +11,9 @@ public class Hero extends Mover {
     private final double drag;
     public int coin;
     public boolean inAir;
-    public static int x = 397;
-    public static int y = 3733;
+    public int x = 397;
+    public int y = 3733;
+    public String verzamel = "";
     public Hero() {
         super();
         gravity = 9.8;
@@ -21,13 +21,13 @@ public class Hero extends Mover {
         drag = 0.8;
         setImage("p1.png");
         setLocation(387, 1573);
-        
+
     }
-    
+
     @Override
     public void act() {
         handleInput();
-        addCoin();
+        addLetter();
         velocityX *= drag;
         velocityY += acc;
         if (velocityY > gravity) {
@@ -35,12 +35,19 @@ public class Hero extends Mover {
         }
         applyVelocity();
         /*for (Actor enemy : getIntersectingObjects(Enemy.class)) {
-            if (enemy != null) {
+        if (enemy != null) {
+        //getWorld().removeObject(this);
+        setLocation(x,y);
+        break;
+        }
+        }*/
+        for (Actor WaterTile : getObjectsInRange(50, WaterTile.class)) {
+            if (WaterTile != null && WaterTile instanceof WaterTile) {
                 //getWorld().removeObject(this);
                 setLocation(x,y);
                 break;
             }
-        }*/
+        }
         for (Actor door : getIntersectingObjects(Door.class)) {
             if ((door != null) && (coin == 5)) {
                 //getWorld().removeObject(this);
@@ -49,39 +56,56 @@ public class Hero extends Mover {
                 break;
             }
         }    
-        
-}
+        for (Actor lock : getIntersectingObjects(lock.class)){
+            if(isTouching(lock.class))  
+            {  
+                this.x = getX();
+                this.y = getY();
+                setLocation(x,y);
+            }
+        }
+    }
+
     public void checkpoint()
     {
-    if(isTouching(lock.class))  
-    {  
-    this.x = getX();
-    this.y = getY();
-    setLocation(x,y);
-}
+        if(isTouching(lock.class))  
+        {  
+            this.x = getX();
+            this.y = getY();
+            setLocation(x,y);
+        }
     }
+
     public String getPosition() {
         String retval = "X: " + this.getX() +" Y: " + this.getY();
         return retval;
     }
-    public int addCoin(){
-         if(isTouching(coinBronze.class)){
-            removeTouching(coinBronze.class);
+    public String addLetter(){
+        if(isTouching(A.class)){
+            removeTouching(A.class);
+            verzamel += "A";
+            getWorld().showText(verzamel, 100, 100);
             coin ++;
         }
-        return coin;
+        if(isTouching(B.class)){
+            removeTouching(B.class);
+            verzamel += "B";
+            getWorld().showText(verzamel, 100, 100);
+            coin ++;
+        }
+        return verzamel;
     }
-    
+
     public void handleInput() {
         for(Actor hero : getIntersectingObjects(Tile.class)) {
-        if (Greenfoot.isKeyDown("space")) {
-            inAir = true;
-            velocityY = -17;
+            if (Greenfoot.isKeyDown("space")) {
+                inAir = true;
+                velocityY = -17;
+            }
+            else{
+                inAir = false;
+            }
         }
-        else{
-            inAir = false;
-        }
-    }
         if (Greenfoot.isKeyDown("a")) {
             velocityX = -4;
         } else if (Greenfoot.isKeyDown("d")) {

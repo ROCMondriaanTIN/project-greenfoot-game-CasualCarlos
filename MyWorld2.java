@@ -110,8 +110,8 @@ public class MyWorld2 extends World {
         addObject(camera, 385, 3133);
         addObject(hero, 397, 3733);
         addObject(new Enemy(), 1170, 410);
-        addObject(new coinBronze(), 1895, 2533);
-        addObject(new coinBronze(), 1945, 2690);
+        addObject(new A(), 1895, 2533);
+        addObject(new A(), 1945, 2690);
         addObject(new lock(), 1618, 3084);
 
         // Initialiseren van de CollisionEngine zodat de speler niet door de tile heen kan lopen.
