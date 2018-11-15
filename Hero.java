@@ -62,6 +62,7 @@ public class Hero extends Mover {
                 this.x = getX();
                 this.y = getY();
                 setLocation(x,y);
+                break;
             }
         }
     }
