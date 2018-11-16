@@ -9,7 +9,7 @@ public class Hero extends Mover {
     private final double gravity;
     private final double acc;
     private final double drag;
-    public int coin;
+    public static int coin;
     public boolean inAir;
     public int x = 397;
     public int y = 3733;
@@ -24,6 +24,8 @@ public class Hero extends Mover {
 
     }
 
+
+    
     @Override
     public void act() {
         handleInput();
@@ -48,7 +50,7 @@ public class Hero extends Mover {
                 break;
             }
         }
-        for (Actor door : getIntersectingObjects(Door.class)) {
+        for (Actor door : getIntersectingObjects(door.class)) {
             if ((door != null) && (coin == 5)) {
                 //getWorld().removeObject(this);
                 Greenfoot.setWorld(new MyWorld2());

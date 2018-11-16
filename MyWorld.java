@@ -91,7 +91,7 @@ public class MyWorld extends World {
                 {65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
                 {65,150,150,150,150,150,150,150,150,150,150,150,150,150,150,65,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
             };
-        setPaintOrder(Hero.class, doorTop.class, Door.class);
+        setPaintOrder(Hero.class, ClosedDoor.class, ClosedDoorTop.class, doorTop.class, door.class);
         // Declareren en initialiseren van de TileEngine klasse om de map aan de world toe te voegen
         TileEngine te = new TileEngine(this, 60, 60, map);
         // Declarenre en initialiseren van de camera klasse met de TileEngine klasse 
@@ -101,9 +101,11 @@ public class MyWorld extends World {
         // moet de klasse Mover extenden voor de camera om te werken
         Hero hero = new Hero();
         lock Lock = new lock();
-        Door door = new Door();
+        door door = new door();
         ResetButton reset = new ResetButton();
         doorTop Doortop = new doorTop();
+        ClosedDoor closedD = new ClosedDoor();
+        ClosedDoorTop closedDT = new ClosedDoorTop();
         // Laat de camera een object volgen. Die moet een Mover instatie zijn of een extentie hiervan.
         camera.follow(hero);
         // Alle objecten toevoegen aan de wereld: camera, main karakter en mogelijke enemies
@@ -117,7 +119,9 @@ public class MyWorld extends World {
         addObject(new B(), 953, 3013);
         addObject(new A(), 714, 2773);
         addObject(new lock(), 1618, 3206);
-        addObject(new Door(), 2070, 2725);
+        addObject(new ClosedDoor(), 2070, 2725);
+        addObject(new ClosedDoorTop(), 2070,2655);
+        addObject(new door(), 2070, 2725);
         addObject(new doorTop(), 2070,2655);
         // Initialiseren van de CollisionEngine zodat de speler niet door de tile heen kan lopen.
         // De collision engine kijkt alleen naar de tiles die de variabele solid op true hebben staan.
@@ -139,6 +143,5 @@ public class MyWorld extends World {
     private void prepare()
     {
 
-        
     }
 }
