@@ -91,7 +91,7 @@ public class MyWorld extends World {
                 {65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
                 {65,150,150,150,150,150,150,150,150,150,150,150,150,150,150,65,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
             };
-        setPaintOrder(Hero.class, ClosedDoor.class, ClosedDoorTop.class, doorTop.class, door.class);
+        setPaintOrder(A.class, B.class, Hero.class, ClosedDoor.class, ClosedDoorTop.class, doorTop.class, door.class);
         // Declareren en initialiseren van de TileEngine klasse om de map aan de world toe te voegen
         TileEngine te = new TileEngine(this, 60, 60, map);
         // Declarenre en initialiseren van de camera klasse met de TileEngine klasse 
@@ -108,6 +108,7 @@ public class MyWorld extends World {
         ClosedDoorTop closedDT = new ClosedDoorTop();
         // Laat de camera een object volgen. Die moet een Mover instatie zijn of een extentie hiervan.
         camera.follow(hero);
+        showText("Level: 1", 100, 125);
         // Alle objecten toevoegen aan de wereld: camera, main karakter en mogelijke enemies
         addObject(camera, 385, 3133);
         addObject(new ResetButton(), 395, 3600);

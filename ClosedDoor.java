@@ -20,7 +20,8 @@ public class ClosedDoor extends Mover
 
     public void removeDoor(){
         if (Greenfoot.mouseClicked(this)){
-            getWorld().removeObject(this);
+            setLocation(7000, 5000);
+            return;
         }
     }
 }

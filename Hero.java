@@ -14,6 +14,8 @@ public class Hero extends Mover {
     public int x = 397;
     public int y = 3733;
     public String verzamel = "";
+    private int frame = 1;
+    private int jumpFrame = 1;
     public Hero() {
         super();
         gravity = 9.8;
@@ -24,8 +26,6 @@ public class Hero extends Mover {
 
     }
 
-
-    
     @Override
     public void act() {
         handleInput();
@@ -53,6 +53,8 @@ public class Hero extends Mover {
         for (Actor door : getIntersectingObjects(door.class)) {
             if ((door != null) && (coin == 5)) {
                 //getWorld().removeObject(this);
+                isTouching(door.class);
+                Greenfoot.mouseClicked(door.class);
                 Greenfoot.setWorld(new MyWorld2());
                 String activeWorld = "MyWorld2";
                 break;
@@ -83,6 +85,7 @@ public class Hero extends Mover {
         String retval = "X: " + this.getX() +" Y: " + this.getY();
         return retval;
     }
+
     public String addLetter(){
         if(isTouching(A.class)){
             removeTouching(A.class);
@@ -104,6 +107,7 @@ public class Hero extends Mover {
             if (Greenfoot.isKeyDown("space")) {
                 inAir = true;
                 velocityY = -17;
+                setImage("p1_jump.png");
             }
             else{
                 inAir = false;
@@ -111,9 +115,89 @@ public class Hero extends Mover {
         }
         if (Greenfoot.isKeyDown("a")) {
             velocityX = -4;
+            frames2();
         } else if (Greenfoot.isKeyDown("d")) {
             velocityX = 4;
+            frames();
         }
+    }
+
+    public void frames2(){
+        if(frame == 1){
+            setImage("p1_walk2_01.png");
+        }
+        if(frame == 2){
+            setImage("p1_walk2_02.png");
+        }
+        if(frame == 3){
+            setImage("p1_walk2_03.png");
+        }
+        if(frame == 4){
+            setImage("p1_walk2_04.png");
+        }
+        if(frame == 5){
+            setImage("p1_walk2_05.png");
+        }
+        if(frame == 6){
+            setImage("p1_walk2_06.png");
+        }
+        if(frame == 7){
+            setImage("p1_walk2_07.png");
+        }
+        if(frame == 8){
+            setImage("p1_walk2_08.png");
+        }
+        if(frame == 9){
+            setImage("p1_walk2_09.png");
+        }
+        if(frame == 10){
+            setImage("p1_walk2_10.png");
+        }
+        if(frame == 11){
+            setImage("p1_walk2_11.png");
+            frame = 1;
+            return;
+        }
+        frame++;
+    }
+
+    public void frames(){
+        if(frame == 1){
+            setImage("p1_walk01.png");
+        }
+        if(frame == 2){
+            setImage("p1_walk02.png");
+        }
+        if(frame == 3){
+            setImage("p1_walk03.png");
+        }
+        if(frame == 4){
+            setImage("p1_walk04.png");
+        }
+        if(frame == 5){
+            setImage("p1_walk05.png");
+        }
+        if(frame == 6){
+            setImage("p1_walk06.png");
+        }
+        if(frame == 7){
+            setImage("p1_walk07.png");
+        }
+        if(frame == 8){
+            setImage("p1_walk08.png");
+        }
+        if(frame == 9){
+            setImage("p1_walk09.png");
+        }
+        if(frame == 10){
+            setImage("p1_walk10.png");
+        }
+        if(frame == 11){
+            setImage("p1_walk11.png");
+            frame = 1;
+            return;
+        }
+        frame++;
     }
 
     public int getWidth() {

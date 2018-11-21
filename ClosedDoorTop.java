@@ -14,12 +14,13 @@ public class ClosedDoorTop extends Mover
      */
     public void act() 
     {
-        removeDoor();
+        removeDoor2();
         applyVelocity();
     }    
-        public void removeDoor(){
-        if (Greenfoot.mouseClicked(this)){
+        public void removeDoor2(){
+        if (Greenfoot.mouseClicked(ClosedDoor.class)){
             getWorld().removeObject(this);
+            return;
         }
     }
 }
