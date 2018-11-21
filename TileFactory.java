@@ -367,11 +367,11 @@ tile.isSolid = true;
 break;
 case 88:
 tile=new Tile("ladder_mid.png",TileEngine.TILE_WIDTH,TileEngine.TILE_HEIGHT);
-tile.isSolid = true;
+tile.isSolid = false;
 break;
 case 89:
 tile=new Tile("ladder_top.png",TileEngine.TILE_WIDTH,TileEngine.TILE_HEIGHT);
-tile.isSolid = true;
+tile.isSolid = false;
 break;
 case 90:
 tile=new Tile("liquidLava.png",TileEngine.TILE_WIDTH,TileEngine.TILE_HEIGHT);
@@ -423,15 +423,15 @@ tile.isSolid = true;
 break;
 case 102:
 tile=new Tile("ropeAttached.png",TileEngine.TILE_WIDTH,TileEngine.TILE_HEIGHT);
-tile.isSolid = true;
+tile.isSolid = false;
 break;
 case 103:
 tile=new Tile("ropeHorizontal.png",TileEngine.TILE_WIDTH,TileEngine.TILE_HEIGHT);
-tile.isSolid = true;
+tile.isSolid = false;
 break;
 case 104:
 tile=new Tile("ropeVertical.png",TileEngine.TILE_WIDTH,TileEngine.TILE_HEIGHT);
-tile.isSolid = true;
+tile.isSolid = false;
 break;
 case 105:
 tile=new Tile("sand.png",TileEngine.TILE_WIDTH,TileEngine.TILE_HEIGHT);

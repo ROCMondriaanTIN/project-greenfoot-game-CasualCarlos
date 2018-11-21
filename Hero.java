@@ -16,6 +16,7 @@ public class Hero extends Mover {
     public String verzamel = "";
     private int frame = 1;
     private int jumpFrame = 1;
+    public String word = "ABAAA";
     public Hero() {
         super();
         gravity = 9.8;
@@ -53,8 +54,6 @@ public class Hero extends Mover {
         for (Actor door : getIntersectingObjects(door.class)) {
             if ((door != null) && (coin == 5)) {
                 //getWorld().removeObject(this);
-                isTouching(door.class);
-                Greenfoot.mouseClicked(door.class);
                 Greenfoot.setWorld(new MyWorld2());
                 String activeWorld = "MyWorld2";
                 break;
@@ -102,11 +101,12 @@ public class Hero extends Mover {
         return verzamel;
     }
 
+
     public void handleInput() {
         for(Actor hero : getIntersectingObjects(Tile.class)) {
             if (Greenfoot.isKeyDown("space")) {
                 inAir = true;
-                velocityY = -17;
+                velocityY = -14;
                 setImage("p1_jump.png");
             }
             else{
