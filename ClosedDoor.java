@@ -16,6 +16,7 @@ public class ClosedDoor extends Mover
     {
         removeDoor();
         applyVelocity();
+        boolean coinCatched = false;
     }    
 
     public void removeDoor(){
@@ -23,6 +24,6 @@ public class ClosedDoor extends Mover
             setLocation(7000, 5000);
             return;
         }
-    }
+}
 }
 

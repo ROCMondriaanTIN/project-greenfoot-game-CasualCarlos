@@ -16,7 +16,8 @@ public class Hero extends Mover {
     public String verzamel = "";
     private int frame = 1;
     private int jumpFrame = 1;
-    public String word = "ABAAA";
+    public String word;
+    public String activeWorld = "MyWorld1";
     public Hero() {
         super();
         gravity = 9.8;
@@ -48,35 +49,30 @@ public class Hero extends Mover {
             if (WaterTile != null && WaterTile instanceof WaterTile) {
                 //getWorld().removeObject(this);
                 setLocation(x,y);
-                break;
+                return;
             }
+            break;
         }
         for (Actor door : getIntersectingObjects(door.class)) {
-            if ((door != null) && (coin == 5)) {
+            if (coin == 5 && word == "ABAAA") {
                 //getWorld().removeObject(this);
                 Greenfoot.setWorld(new MyWorld2());
                 String activeWorld = "MyWorld2";
-                break;
+            } 
+            else if(word != "ABAAA"){
+                Greenfoot.setWorld(new MyWorld());
+                String activeWorld = "MyWorld1";
             }
-        }    
+        }
         for (Actor lock : getIntersectingObjects(lock.class)){
             if(isTouching(lock.class))  
             {  
                 this.x = getX();
                 this.y = getY();
                 setLocation(x,y);
-                break;
+                return;
             }
-        }
-    }
-
-    public void checkpoint()
-    {
-        if(isTouching(lock.class))  
-        {  
-            this.x = getX();
-            this.y = getY();
-            setLocation(x,y);
+            break;
         }
     }
 
@@ -101,9 +97,8 @@ public class Hero extends Mover {
         return verzamel;
     }
 
-
     public void handleInput() {
-        for(Actor hero : getIntersectingObjects(Tile.class)) {
+        for(Actor hero : getIntersectingObjects(JumpTile.class)) {
             if (Greenfoot.isKeyDown("space")) {
                 inAir = true;
                 velocityY = -14;
