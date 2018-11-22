@@ -11,13 +11,13 @@ public class Hero extends Mover {
     private final double drag;
     public static int coin;
     public boolean inAir;
-    public int x = 397;
-    public int y = 3733;
+    public int x;
+    public int y;
     public String verzamel = "";
     private int frame = 1;
     private int jumpFrame = 1;
     public String word;
-    public String activeWorld = "MyWorld1";
+    public String activeWorld = "";
     public Hero() {
         super();
         gravity = 9.8;
@@ -30,6 +30,11 @@ public class Hero extends Mover {
 
     @Override
     public void act() {
+        if(activeWorld == ""){
+            String activeWorld = "MyWorld1";
+        }
+        
+        
         handleInput();
         addLetter();
         velocityX *= drag;
@@ -46,23 +51,26 @@ public class Hero extends Mover {
         }
         }*/
         for (Actor WaterTile : getObjectsInRange(50, WaterTile.class)) {
-            if (WaterTile != null && WaterTile instanceof WaterTile) {
+            if (activeWorld == "MyWorld1" && WaterTile != null && WaterTile instanceof WaterTile) {
                 //getWorld().removeObject(this);
-                setLocation(x,y);
+                setLocation(397,3733);
+                return;
+            }
+            if (activeWorld == "MyWorld2" && WaterTile != null && WaterTile instanceof WaterTile) {
+                //getWorld().removeObject(this);
+                Greenfoot.setWorld(new MyWorld2());
+                setLocation(452,1633);
                 return;
             }
             break;
         }
         for (Actor door : getIntersectingObjects(door.class)) {
-            if (coin == 5 && word == "ABAAA") {
+            if (coin == 5) {
                 //getWorld().removeObject(this);
                 Greenfoot.setWorld(new MyWorld2());
                 String activeWorld = "MyWorld2";
+                setLocation(397, 100);
             } 
-            else if(word != "ABAAA"){
-                Greenfoot.setWorld(new MyWorld());
-                String activeWorld = "MyWorld1";
-            }
         }
         for (Actor lock : getIntersectingObjects(lock.class)){
             if(isTouching(lock.class))  
