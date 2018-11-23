@@ -43,13 +43,18 @@ public class Hero extends Mover {
             velocityY = gravity;
         }
         applyVelocity();
-        /*for (Actor enemy : getIntersectingObjects(Enemy.class)) {
-        if (enemy != null) {
-        //getWorld().removeObject(this);
-        setLocation(x,y);
-        break;
+        for (Actor enemy : getIntersectingObjects(Enemy.class)) {
+            if (enemy != null) {
+                if(worldName == "World1"){
+                setLocation(397,3733);
+                return;
+            }
+            if(worldName == "World2"){
+                setLocation(452,1633);
+                return;
+            }
+            }
         }
-        }*/
         for (Actor WaterTile : getObjectsInRange(50, WaterTile.class)) {
             if (WaterTile != null && WaterTile instanceof WaterTile) {
                 //getWorld().removeObject(this);
