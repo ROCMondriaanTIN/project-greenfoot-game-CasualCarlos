@@ -8,6 +8,7 @@ public class Hero extends Mover {
 
     private final double gravity;
     private final double acc;
+    public String worldName = "";
     private final double drag;
     public static int coin;
     public boolean inAir;
@@ -18,14 +19,14 @@ public class Hero extends Mover {
     private int jumpFrame = 1;
     public String word;
     public String activeWorld = "";
-    public Hero() {
+    public Hero(String worldName) {
         super();
         gravity = 9.8;
         acc = 0.6;
         drag = 0.8;
         setImage("p1.png");
         setLocation(387, 1573);
-
+        this.worldName = worldName;
     }
 
     @Override
@@ -33,8 +34,7 @@ public class Hero extends Mover {
         if(activeWorld == ""){
             String activeWorld = "MyWorld1";
         }
-        
-        
+
         handleInput();
         addLetter();
         velocityX *= drag;
@@ -51,15 +51,23 @@ public class Hero extends Mover {
         }
         }*/
         for (Actor WaterTile : getObjectsInRange(50, WaterTile.class)) {
-            if (activeWorld == "MyWorld1" && WaterTile != null && WaterTile instanceof WaterTile) {
+            if (WaterTile != null && WaterTile instanceof WaterTile) {
                 //getWorld().removeObject(this);
-                setLocation(397,3733);
-                return;
+                if(worldName == "World1"){
+                    setLocation(397,3733);
+                    return;
+                }
+                if(worldName == "World2"){
+                    setLocation(452, 1633);
+                    return;
+                }
             }
-            if (activeWorld == "MyWorld2" && WaterTile != null && WaterTile instanceof WaterTile) {
+            break;
+        }
+        for (Actor LavaTile : getObjectsInRange(50, LavaTile.class)) {
+            if (LavaTile != null && LavaTile instanceof LavaTile) {
                 //getWorld().removeObject(this);
-                Greenfoot.setWorld(new MyWorld2());
-                setLocation(452,1633);
+                setLocation(452, 1633);
                 return;
             }
             break;
@@ -69,7 +77,7 @@ public class Hero extends Mover {
                 //getWorld().removeObject(this);
                 Greenfoot.setWorld(new MyWorld2());
                 String activeWorld = "MyWorld2";
-                setLocation(397, 100);
+                setLocation(452, 1633);
             } 
         }
         for (Actor lock : getIntersectingObjects(lock.class)){

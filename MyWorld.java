@@ -99,7 +99,7 @@ public class MyWorld extends World {
         Camera camera = new Camera(te);
         // Declareren en initialiseren van een main karakter van het spel mijne heet Hero. Deze klasse 
         // moet de klasse Mover extenden voor de camera om te werken
-        Hero hero = new Hero();
+        Hero hero = new Hero("World1");
         lock Lock = new lock();
         door door = new door();
         ResetButton reset = new ResetButton();

@@ -23,7 +23,7 @@ public class ResetButton extends Mover
         if (Greenfoot.mouseClicked(this)){
             if(activeWorld == "MyWorld2") {
                 Greenfoot.setWorld(new MyWorld2());
-                setLocation(397, 100);
+                setLocation(452, 1633);
             }
             else if(activeWorld == "MyWorld1"){
                 Greenfoot.setWorld(new MyWorld());

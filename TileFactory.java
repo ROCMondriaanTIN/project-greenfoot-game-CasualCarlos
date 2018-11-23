@@ -375,26 +375,26 @@ tile.isSolid = false;
 break;
 case 90:
 tile=new Tile("liquidLava.png",TileEngine.TILE_WIDTH,TileEngine.TILE_HEIGHT);
-tile.isSolid = true;
+tile.isSolid = false;
 break;
 case 91:
 tile=new Tile("liquidLavaTop.png",TileEngine.TILE_WIDTH,TileEngine.TILE_HEIGHT);
-tile.isSolid = true;
+tile.isSolid = false;
 break;
 case 92:
-tile=new Tile("liquidLavaTop_mid.png",TileEngine.TILE_WIDTH,TileEngine.TILE_HEIGHT);
-tile.isSolid = true;
+tile=new LavaTile("liquidLavaTop_mid.png",TileEngine.TILE_WIDTH,TileEngine.TILE_HEIGHT);
+tile.isSolid = false;
 break;
 case 93:
 tile=new WaterTile("liquidWater.png",TileEngine.TILE_WIDTH,TileEngine.TILE_HEIGHT);
 tile.isSolid = false;
 break;
 case 94:
-tile=new Tile("liquidWaterTop.png",TileEngine.TILE_WIDTH,TileEngine.TILE_HEIGHT);
+tile=new WaterTile("liquidWaterTop.png",TileEngine.TILE_WIDTH,TileEngine.TILE_HEIGHT);
 tile.isSolid = false;
 break;
 case 95:
-tile=new Tile("liquidWaterTop_mid.png",TileEngine.TILE_WIDTH,TileEngine.TILE_HEIGHT);
+tile=new WaterTile("liquidWaterTop_mid.png",TileEngine.TILE_WIDTH,TileEngine.TILE_HEIGHT);
 tile.isSolid = false;
 break;
 case 96:
@@ -427,7 +427,7 @@ tile.isSolid = false;
 break;
 case 103:
 tile=new JumpTile("ropeHorizontal.png",TileEngine.TILE_WIDTH,TileEngine.TILE_HEIGHT);
-tile.isSolid = false;
+tile.isSolid = true;
 break;
 case 104:
 tile=new JumpTile("ropeVertical.png",TileEngine.TILE_WIDTH,TileEngine.TILE_HEIGHT);
@@ -519,11 +519,11 @@ tile.isSolid = true;
 break;
 case 126:
 tile=new Tile("signExit.png",TileEngine.TILE_WIDTH,TileEngine.TILE_HEIGHT);
-tile.isSolid = true;
+tile.isSolid = false;
 break;
 case 127:
 tile=new Tile("signLeft.png",TileEngine.TILE_WIDTH,TileEngine.TILE_HEIGHT);
-tile.isSolid = true;
+tile.isSolid = false;
 break;
 case 128:
 tile=new Tile("signRight.png",TileEngine.TILE_WIDTH,TileEngine.TILE_HEIGHT);
@@ -699,7 +699,7 @@ tile.isSolid = true;
 break;
 case 171:
 tile=new JumpTile("window.png",TileEngine.TILE_WIDTH,TileEngine.TILE_HEIGHT);
-tile.isSolid = true;
+tile.isSolid = false;
 break;
             default:
                 tile = new Tile("grassMid.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
