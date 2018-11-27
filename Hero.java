@@ -46,7 +46,7 @@ public class Hero extends Mover {
         for (Actor enemy : getIntersectingObjects(Enemy.class)) {
             if (enemy != null) {
                 if(worldName == "World1"){
-                setLocation(397,3733);
+                setLocation(x, y);
                 return;
             }
             if(worldName == "World2"){
@@ -84,6 +84,10 @@ public class Hero extends Mover {
                 String activeWorld = "MyWorld2";
                 setLocation(452, 1633);
             } 
+        }
+        for (Actor door : getIntersectingObjects(fakeDoor.class)) {
+                String activeWorld = "MyWorld2";
+                setLocation(452, 1633);
         }
         for (Actor lock : getIntersectingObjects(lock.class)){
             if(isTouching(lock.class))  
