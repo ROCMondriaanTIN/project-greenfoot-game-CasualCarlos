@@ -17,13 +17,13 @@ public class Start extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1000, 800, 1, false); 
-        this.setBackground("bg.png");
-        showText("JeMoederJack",100, 100);
+        this.setBackground("start.png");
+        showText("Klik op het MUNTJE om te STARTEN" , 200, 500);
         prepare();
     }
     
     public void prepare(){
         LevelButton levelButton = new LevelButton();
-        addObject(levelButton, 500, 400);
+        addObject(levelButton, 506, 405);
     }
 }
