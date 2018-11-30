@@ -46,7 +46,7 @@ public class Hero extends Mover {
         for (Actor enemy : getIntersectingObjects(Enemy.class)) {
             if (enemy != null) {
                 if(worldName == "World1"){
-                setLocation(397,3733);
+                setLocation(x, y);
                 return;
             }
             if(worldName == "World2"){

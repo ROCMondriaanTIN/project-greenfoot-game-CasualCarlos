@@ -22,6 +22,7 @@ public class Start extends World
         prepare();
     }
     
+    
     public void prepare(){
         LevelButton levelButton = new LevelButton();
         addObject(levelButton, 506, 405);
