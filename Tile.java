@@ -16,7 +16,6 @@ public class Tile extends BasicTile {
      */
     public Tile(String image, int width, int heigth) {
         super(image, width, heigth);
-            getImage().drawString("ID: " + id, 10, 10);
     }
 
     /**
