@@ -118,7 +118,7 @@ public class MyWorld extends World {
         addObject(new A(), 1021, 3373);
         addObject(new B(), 2070, 3120);
         addObject(new A(), 1250, 3140);
-        addObject(new lock(), 1529, 3206);
+        addObject(new lock(), 1490, 3206);
         addObject(new ClosedDoor(), 2070, 2725);
         addObject(new ClosedDoorTop(), 2070,2655);
         addObject(new door(), 2070, 2725);
