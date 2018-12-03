@@ -13,8 +13,8 @@ public class Hero extends Mover {
     private final double drag;
     public static int coin;
     public boolean inAir;
-    public int x;
-    public int y;
+    public int x = 397;
+    public int y = 3733;
     public String verzamel = "";
     private int frame = 1;
     private int jumpFrame = 1;
@@ -26,7 +26,7 @@ public class Hero extends Mover {
         acc = 0.6;
         drag = 0.8;
         setImage("p1.png");
-        setLocation(387, 1573);
+        setLocation(397,3733);
         this.worldName = worldName;
     }
 
@@ -46,11 +46,8 @@ public class Hero extends Mover {
         applyVelocity();
         for (Actor enemy : getIntersectingObjects(Enemy.class)) {
             if (enemy != null) {
-                if(isTouching(lock.class) && worldName == "World1"){
-                    setLocation(1490, 3206);
-                }
                 if(worldName == "World1"){
-                    setLocation(397,3733);
+                    setLocation(x,y);
                     return;
                 }
                 if(worldName == "World2"){
@@ -134,7 +131,7 @@ public class Hero extends Mover {
             if (Greenfoot.isKeyDown("space")) {
                 inAir = true;
                 velocityY = -14;
-                setImage("p1_jump.png");
+                setImage("p1_jump.png");             
             }
             else{
                 inAir = false;
