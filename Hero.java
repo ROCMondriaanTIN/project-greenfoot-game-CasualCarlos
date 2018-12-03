@@ -5,7 +5,8 @@ import greenfoot.*;
  * @author R. Springer
  */
 public class Hero extends Mover {
-
+    GreenfootSound coinPlay = new GreenfootSound("sounds/smb2_coin.wav");
+    GreenfootSound doorPlay = new GreenfootSound("sounds/nsmbwiiDoor3.wav");
     private final double gravity;
     private final double acc;
     public String worldName = "";
@@ -45,14 +46,17 @@ public class Hero extends Mover {
         applyVelocity();
         for (Actor enemy : getIntersectingObjects(Enemy.class)) {
             if (enemy != null) {
+                if(isTouching(lock.class) && worldName == "World1"){
+                    setLocation(1490, 3206);
+                }
                 if(worldName == "World1"){
-                setLocation(x, y);
-                return;
-            }
-            if(worldName == "World2"){
-                setLocation(452,1633);
-                return;
-            }
+                    setLocation(397,3733);
+                    return;
+                }
+                if(worldName == "World2"){
+                    setLocation(452,1633);
+                    return;
+                }
             }
         }
         for (Actor WaterTile : getObjectsInRange(50, WaterTile.class)) {
@@ -80,14 +84,15 @@ public class Hero extends Mover {
         for (Actor door : getIntersectingObjects(door.class)) {
             if (coin == 5) {
                 //getWorld().removeObject(this);
+                doorPlay.play();
                 Greenfoot.setWorld(new MyWorld2());
                 String activeWorld = "MyWorld2";
                 setLocation(452, 1633);
             } 
         }
         for (Actor door : getIntersectingObjects(fakeDoor.class)) {
-                String activeWorld = "MyWorld2";
-                setLocation(452, 1633);
+            String activeWorld = "MyWorld2";
+            setLocation(452, 1633);
         }
         for (Actor lock : getIntersectingObjects(lock.class)){
             if(isTouching(lock.class))  
@@ -110,12 +115,14 @@ public class Hero extends Mover {
         if(isTouching(A.class)){
             removeTouching(A.class);
             verzamel += "A";
+            coinPlay.play();
             getWorld().showText(verzamel, 100, 100);
             coin ++;
         }
         if(isTouching(B.class)){
             removeTouching(B.class);
             verzamel += "B";
+            coinPlay.play();
             getWorld().showText(verzamel, 100, 100);
             coin ++;
         }

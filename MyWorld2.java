@@ -72,11 +72,13 @@ public class MyWorld2 extends World {
 {93,93,93,93,93,93,93,93,93,93,93,93,19,19,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90},
 {93,93,93,93,93,93,93,93,93,93,93,93,19,19,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90},
 };
+        setPaintOrder(A.class, B.class, Hero.class, ClosedDoor.class, ClosedDoorTop.class, doorTop.class, door.class);
         // Declareren en initialiseren van de TileEngine klasse om de map aan de world toe te voegen
         TileEngine te = new TileEngine(this, 60, 60, map);
         // Declarenre en initialiseren van de camera klasse met de TileEngine klasse 
         // zodat de camera weet welke tiles allemaal moeten meebewegen met de camera
         Camera camera = new Camera(te);
+        GreenfootSound bgm = new GreenfootSound("sounds/smb2_coin.wav");
         // Declareren en initialiseren van een main karakter van het spel mijne heet Hero. Deze klasse 
         // moet de klasse Mover extenden voor de camera om te werken
         Hero hero = new Hero("World2");
@@ -91,8 +93,12 @@ public class MyWorld2 extends World {
         addObject(new Enemy(), 1730, 1848);
         addObject(new fakeDoor(), 4104, 2189);
         addObject(new fakeDoor(), 389, 2488);
-        addObject(new A(), 1895, 2533);
-        addObject(new A(), 1945, 2690);
+        addObject(new ClosedDoor(), 3987, 568);
+        addObject(new ClosedDoorTop(), 3987, 504);
+        addObject(new door(), 3987, 568);
+        addObject(new doorTop(), 3987, 504);
+        addObject(new A(), 1350, 2413);
+        addObject(new A(), 633, 2353);
         addObject(new lock(), 1618, 3084);
 
         // Initialiseren van de CollisionEngine zodat de speler niet door de tile heen kan lopen.
