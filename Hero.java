@@ -14,6 +14,7 @@ public class Hero extends Mover {
     public static int coin;
     public boolean inAir;
     public int x = 397;
+    public boolean doorOpen;
     public int y = 3733;
     public String verzamel = "";
     private int frame = 1;
@@ -35,7 +36,7 @@ public class Hero extends Mover {
         if(activeWorld == ""){
             String activeWorld = "MyWorld1";
         }
-
+        openDoor();
         handleInput();
         addLetter();
         velocityX *= drag;
@@ -79,7 +80,7 @@ public class Hero extends Mover {
             break;
         }
         for (Actor door : getIntersectingObjects(door.class)) {
-            if (coin == 5) {
+            if (coin == 5){
                 //getWorld().removeObject(this);
                 doorPlay.play();
                 Greenfoot.setWorld(new MyWorld2());
@@ -108,6 +109,15 @@ public class Hero extends Mover {
         return retval;
     }
 
+    public void openDoor(){
+        if(isTouching(keyDoor.class) && (coin == 5)){
+            removeTouching(keyDoor.class);
+            getWorld().removeObjects(getWorld().getObjects(ClosedDoor.class));
+            getWorld().removeObjects(getWorld().getObjects(ClosedDoorTop.class));
+            boolean doorOpen = true;
+        }
+    }
+
     public String addLetter(){
         if(isTouching(A.class)){
             removeTouching(A.class);
@@ -125,7 +135,7 @@ public class Hero extends Mover {
         }
         return verzamel;
     }
-
+    
     public void handleInput() {
         for(Actor hero : getIntersectingObjects(JumpTile.class)) {
             if (Greenfoot.isKeyDown("space")) {

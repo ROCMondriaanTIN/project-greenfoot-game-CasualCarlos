@@ -122,6 +122,7 @@ public class MyWorld extends World {
         addObject(new ClosedDoor(), 2070, 2725);
         addObject(new ClosedDoorTop(), 2070,2655);
         addObject(new door(), 2070, 2725);
+        addObject(new keyDoor(), 1950, 2725);
         addObject(new doorTop(), 2070,2655);
         // Initialiseren van de CollisionEngine zodat de speler niet door de tile heen kan lopen.
         // De collision engine kijkt alleen naar de tiles die de variabele solid op true hebben staan.
