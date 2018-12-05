@@ -7,6 +7,8 @@ import greenfoot.*;
 public class Hero extends Mover {
     GreenfootSound coinPlay = new GreenfootSound("sounds/smb2_coin.wav");
     GreenfootSound doorPlay = new GreenfootSound("sounds/nsmbwiiDoor3.wav");
+    GreenfootSound gameIntro = new GreenfootSound("sounds/testing4.mp3");
+    GreenfootSound rainPlay = new GreenfootSound("sounds/rain.mp3");
     private final double gravity;
     private final double acc;
     public String worldName = "";
@@ -26,11 +28,12 @@ public class Hero extends Mover {
         gravity = 9.8;
         acc = 0.6;
         drag = 0.8;
+        gameIntro.play();
         setImage("p1.png");
         setLocation(397,3733);
         this.worldName = worldName;
     }
-
+    
     @Override
     public void act() {
         if(activeWorld == ""){

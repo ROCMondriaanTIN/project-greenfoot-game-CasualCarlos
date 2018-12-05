@@ -12,6 +12,7 @@ public class LevelButton extends Mover
      * Act - do whatever the LevelButton wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+
     public void act() 
     {
         applyVelocity();
@@ -21,7 +22,7 @@ public class LevelButton extends Mover
             return;
         }
     }    
-    
+
     LevelButton(){
         GreenfootImage image = getImage();  
         image.scale(100, 100);
