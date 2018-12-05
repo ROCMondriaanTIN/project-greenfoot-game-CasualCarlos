@@ -23,17 +23,20 @@ public class Hero extends Mover {
     private int jumpFrame = 1;
     public String word;
     public String activeWorld = "";
+
+    Scorenbord scb;
+
     public Hero(String worldName) {
         super();
         gravity = 9.8;
         acc = 0.6;
         drag = 0.8;
-        gameIntro.play();
+        gameIntro.playLoop();
         setImage("p1.png");
         setLocation(397,3733);
         this.worldName = worldName;
     }
-    
+
     @Override
     public void act() {
         if(activeWorld == ""){
@@ -44,6 +47,12 @@ public class Hero extends Mover {
         addLetter();
         velocityX *= drag;
         velocityY += acc;
+
+        if(scb == null){
+            scb = new Scorenbord();
+            getWorld().addObject(scb, -10, -10);
+        }
+
         if (velocityY > gravity) {
             velocityY = gravity;
         }
@@ -52,10 +61,12 @@ public class Hero extends Mover {
             if (enemy != null) {
                 if(worldName == "World1"){
                     setLocation(x,y);
+                    scb.hartjeEraf();
                     return;
                 }
                 if(worldName == "World2"){
                     setLocation(452,1633);
+                    scb.hartjeEraf();
                     return;
                 }
             }
@@ -65,10 +76,12 @@ public class Hero extends Mover {
                 //getWorld().removeObject(this);
                 if(worldName == "World1"){
                     setLocation(397,3733);
+                    scb.hartjeEraf();
                     return;
                 }
                 if(worldName == "World2"){
                     setLocation(452, 1633);
+                    scb.hartjeEraf();
                     return;
                 }
             }
@@ -122,23 +135,21 @@ public class Hero extends Mover {
     }
 
     public String addLetter(){
-        if(isTouching(A.class)){
-            removeTouching(A.class);
-            verzamel += "A";
-            coinPlay.play();
-            getWorld().showText(verzamel, 100, 100);
-            coin ++;
-        }
-        if(isTouching(B.class)){
-            removeTouching(B.class);
-            verzamel += "B";
-            coinPlay.play();
-            getWorld().showText(verzamel, 100, 100);
-            coin ++;
+        for(Letter verzamelLetter : getIntersectingObjects(Letter.class)){
+            if(verzamelLetter != null) {
+                verzamel += verzamelLetter.letter;
+                GreenfootImage verzamelImg = verzamelLetter.getImage();
+                setImage(verzamel + ".png");
+                coinPlay.play();
+                //ltr.hartjeLatenZien();
+                getWorld().showText(verzamel, 100, 100);
+                coin ++;
+                getWorld().removeObject(verzamelLetter);
+            }
         }
         return verzamel;
     }
-    
+
     public void handleInput() {
         for(Actor hero : getIntersectingObjects(JumpTile.class)) {
             if (Greenfoot.isKeyDown("space")) {

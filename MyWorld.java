@@ -113,11 +113,7 @@ public class MyWorld extends World {
         addObject(new ResetButton(), 395, 3600);
         addObject(hero, 397, 3733);
         addObject(new Enemy(), 1654, 3587);
-        addObject(new A(), 1895, 2533);
-        addObject(new A(), 1945, 2690);
-        addObject(new A(), 1021, 3373);
-        addObject(new B(), 2070, 3120);
-        addObject(new A(), 1250, 3140);
+        addObject(new Letter('D'), 1895, 2533);
         addObject(new lock(), 1490, 3206);
         addObject(new ClosedDoor(), 2070, 2725);
         addObject(new ClosedDoorTop(), 2070,2655);
