@@ -97,8 +97,10 @@ public class MyWorld2 extends World {
         addObject(new ClosedDoorTop(), 3987, 504);
         addObject(new door(), 3987, 568);
         addObject(new doorTop(), 3987, 504);
-        addObject(new A(), 1350, 2413);
-        addObject(new A(), 633, 2353);
+        addObject(new keyDoor(), 3890, 568);
+        addObject(new Letter('A'), 1350, 2413);
+        addObject(new Letter('D'), 633, 2353);
+        addObject(new Letter('O'), 677, 2353);
         addObject(new lock(), 1618, 3084);
 
         // Initialiseren van de CollisionEngine zodat de speler niet door de tile heen kan lopen.

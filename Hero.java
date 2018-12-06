@@ -98,12 +98,19 @@ public class Hero extends Mover {
         }
         for (Actor door : getIntersectingObjects(door.class)) {
             if (coin == 2 && doorOpen == true){
-                    //getWorld().removeObject(this);
-                    doorPlay.play();
-                    Greenfoot.setWorld(new MyWorld2());
-                    String activeWorld = "MyWorld2";
-                    setLocation(452, 1633);
-                } 
+                //getWorld().removeObject(this);
+                doorPlay.play();
+                Greenfoot.setWorld(new MyWorld2());
+                String activeWorld = "MyWorld2";
+                setLocation(452, 1633);
+            } 
+            if (coin == 3 && doorOpen == true){
+                //getWorld().removeObject(this);
+                doorPlay.play();
+                Greenfoot.setWorld(new MyWorld3());
+                String activeWorld = "MyWorld3";
+                setLocation(452, 1633);
+            } 
         }
         for (Actor door : getIntersectingObjects(fakeDoor.class)) {
             String activeWorld = "MyWorld2";
@@ -128,6 +135,14 @@ public class Hero extends Mover {
 
     public void openDoor(){
         if(isTouching(keyDoor.class) && (coin == 2)){
+            String activeWorld = "MyWorld1";
+            boolean doorOpen = true;
+            getWorld().removeObjects(getWorld().getObjects(keyDoor.class));
+            getWorld().removeObjects(getWorld().getObjects(ClosedDoor.class));
+            getWorld().removeObjects(getWorld().getObjects(ClosedDoorTop.class));
+        }
+        if(isTouching(keyDoor.class) && (coin == 3)){
+            String activeWorld = "MyWorld2";
             boolean doorOpen = true;
             getWorld().removeObjects(getWorld().getObjects(keyDoor.class));
             getWorld().removeObjects(getWorld().getObjects(ClosedDoor.class));
