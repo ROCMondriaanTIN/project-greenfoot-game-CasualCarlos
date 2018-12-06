@@ -17,7 +17,7 @@ public class Hero extends Mover {
     public static int coin;
     public boolean inAir;
     public int x = 397;
-    public boolean doorOpen;
+    public boolean doorOpen = true;
     public int y = 3733;
     public String verzamel = "";
     private int frame = 1;
@@ -97,19 +97,19 @@ public class Hero extends Mover {
             break;
         }
         for (Actor door : getIntersectingObjects(door.class)) {
-            if (coin == 5){
-                //getWorld().removeObject(this);
-                doorPlay.play();
-                Greenfoot.setWorld(new MyWorld2());
-                String activeWorld = "MyWorld2";
-                setLocation(452, 1633);
-            } 
+            if (coin == 2 && doorOpen == true){
+                    //getWorld().removeObject(this);
+                    doorPlay.play();
+                    Greenfoot.setWorld(new MyWorld2());
+                    String activeWorld = "MyWorld2";
+                    setLocation(452, 1633);
+                } 
         }
         for (Actor door : getIntersectingObjects(fakeDoor.class)) {
             String activeWorld = "MyWorld2";
             setLocation(452, 1633);
         }
-        for (Actor lock : getIntersectingObjects(lock.class)){
+        for (Actor lock : getIntersectingObjects(lock   .class)){
             if(isTouching(lock.class))  
             {  
                 this.x = getX();
@@ -127,11 +127,11 @@ public class Hero extends Mover {
     }
 
     public void openDoor(){
-        if(isTouching(keyDoor.class) && (coin == 5)){
-            removeTouching(keyDoor.class);
+        if(isTouching(keyDoor.class) && (coin == 2)){
+            boolean doorOpen = true;
+            getWorld().removeObjects(getWorld().getObjects(keyDoor.class));
             getWorld().removeObjects(getWorld().getObjects(ClosedDoor.class));
             getWorld().removeObjects(getWorld().getObjects(ClosedDoorTop.class));
-            boolean doorOpen = true;
         }
     }
 
@@ -141,18 +141,18 @@ public class Hero extends Mover {
                 this.verzamel += verzamelLetter.letter;
                 // StringBuffer verzamelBuffer = new StringBuffer(verzamel);
                 // for(int i = 0; i < verzamelBuffer.capacity();i++) {
-                    
+
                 // }
                 // GreenfootImage verzamelImg = verzamelLetter.getImage();
                 // setImage(verzamel + ".png");
                 coinPlay.play();
                 getWorld().removeObject(verzamelLetter);
                 scb.voegLetterToe(verzamelLetter.letter);
-                
+
                 //ltr.hartjeLatenZien();
                 //getWorld().showText(verzamel, 100, 100);
                 coin ++;
-                
+
             }
         }
         return verzamel;

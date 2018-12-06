@@ -14,43 +14,40 @@ public class Scorenbord extends Actor
     public void act() 
     {
         hartjeLatenZien();
-      //  voegLetterToe('R');
+        //  voegLetterToe('R');
     }    
-    
+
     public void voegLetterToe(char letter){
         //voegt een letter in de arraylist toe
         verzameldeLetters.add(new Letter(letter, true));
         laatlettersZien();
     }
-    
+
     public void laatlettersZien(){
-     //   System.out.println("show letters");
-      //  Letter let = verzameldeLetters.get(0);
-        getWorld().addObject(verzameldeLetters.get(0), 110, 101);
+        //   System.out.println("show letters");
+        //  Letter let = verzameldeLetters.get(0);
         for(int a = 0; a < verzameldeLetters.size(); a++){
-            Letter ltr = new Letter('A', true);
-            ltr.setImage("hud_heartFull.png");
-            getWorld().addObject(ltr, 50+(a*60), 50);
-            verzameldeLetters.add(ltr);
+            Letter lettertje = verzameldeLetters.get(a);
+            getWorld().addObject(lettertje, 50+(a*67), 120);
         }
     }
-    
+
     public void hartjeEraf(){
         leven--;
         hartjeLatenZien();
     }
-    
+
     public void hartjeErbij(){
         leven++;
         hartjeLatenZien();
     }
-    
+
     public void doodGaan(){
         if(leven == 0){
             Greenfoot.setWorld(new Start());
         }
     }
-    
+
     public void hartjeLatenZien(){
         for(int i = 0; i < hartje.size();i++){
             getWorld().removeObject(hartje.get(i));

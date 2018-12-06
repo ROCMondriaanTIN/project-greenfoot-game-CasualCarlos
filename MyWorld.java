@@ -107,18 +107,20 @@ public class MyWorld extends World {
         ClosedDoorTop closedDT = new ClosedDoorTop();
         // Laat de camera een object volgen. Die moet een Mover instatie zijn of een extentie hiervan.
         camera.follow(hero);
-        showText("Level: 1", 100, 125);
         // Alle objecten toevoegen aan de wereld: camera, main karakter en mogelijke enemies
         addObject(camera, 385, 3133);
         addObject(new ResetButton(), 395, 3600);
-        addObject(hero, 397, 3733);
+       // addObject(hero, 397, 3733);
+        addObject(hero, 1895, 2400);
         addObject(new Enemy(), 1654, 3587);
-        addObject(new Letter('D'), 1895, 2533);
+        addObject(new Letter('R'), 1895, 2533);
+        addObject(new Letter('O'), 2017, 3133);
         addObject(new lock(), 1490, 3206);
         addObject(new ClosedDoor(), 2070, 2725);
         addObject(new ClosedDoorTop(), 2070,2655);
         addObject(new door(), 2070, 2725);
-        addObject(new keyDoor(), 1950, 2725);
+        addObject(new keyDoor(), 1850, 2725);
+        addObject(new keyDoor(), 2320, 2899);
         addObject(new doorTop(), 2070,2655);
         // Initialiseren van de CollisionEngine zodat de speler niet door de tile heen kan lopen.
         // De collision engine kijkt alleen naar de tiles die de variabele solid op true hebben staan.
