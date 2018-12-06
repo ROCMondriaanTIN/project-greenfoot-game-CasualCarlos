@@ -8,15 +8,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class LevelButton extends Mover
 {
-    /**
-     * Act - do whatever the LevelButton wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-
+    GreenfootSound gameIntro = new GreenfootSound("sounds/testing4.mp3");
     public void act() 
     {
         applyVelocity();
         if(Greenfoot.mouseClicked(this)){
+            gameIntro.play();
             Greenfoot.setWorld(new MyWorld());
             String actieveWereld = "MyWorld1";
             return;

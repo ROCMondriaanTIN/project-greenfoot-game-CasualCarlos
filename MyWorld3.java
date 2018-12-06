@@ -108,17 +108,15 @@ public class MyWorld3 extends World {
         // Alle objecten toevoegen aan de wereld: camera, main karakter en mogelijke enemies
         addObject(new ResetButton(), 395, 3600);
         addObject(camera, 385, 3133);
-        addObject(hero, 452, 1633);
-        addObject(new Enemy(), 1730, 1848);
-        addObject(new fakeDoor(), 4104, 2189);
-        addObject(new fakeDoor(), 389, 2488);
-        addObject(new ClosedDoor(), 3987, 568);
-        addObject(new ClosedDoorTop(), 3987, 504);
-        addObject(new door(), 3987, 568);
-        addObject(new doorTop(), 3987, 504);
-        addObject(new A(), 1350, 2413);
-        addObject(new A(), 633, 2353);
-        addObject(new lock(), 1618, 3084);
+        addObject(hero, 453, 2353);
+        // addObject(new Enemy(), 1730, 1848);
+        // addObject(new fakeDoor(), 4104, 2189);
+        // addObject(new fakeDoor(), 389, 2488);
+        // addObject(new ClosedDoor(), 3987, 568);
+        // addObject(new ClosedDoorTop(), 3987, 504);
+        // addObject(new door(), 3987, 568);
+        // addObject(new doorTop(), 3987, 504);
+        // addObject(new lock(), 1618, 3084);
 
         // Initialiseren van de CollisionEngine zodat de speler niet door de tile heen kan lopen.
         // De collision engine kijkt alleen naar de tiles die de variabele solid op true hebben staan.

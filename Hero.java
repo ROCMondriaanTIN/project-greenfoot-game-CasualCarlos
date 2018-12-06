@@ -8,7 +8,6 @@ import java.util.*;
 public class Hero extends Mover {
     GreenfootSound coinPlay = new GreenfootSound("sounds/smb2_coin.wav");
     GreenfootSound doorPlay = new GreenfootSound("sounds/nsmbwiiDoor3.wav");
-    GreenfootSound gameIntro = new GreenfootSound("sounds/testing4.mp3");
     GreenfootSound rainPlay = new GreenfootSound("sounds/rain.mp3");
     private final double gravity;
     private final double acc;
@@ -32,7 +31,6 @@ public class Hero extends Mover {
         gravity = 9.8;
         acc = 0.6;
         drag = 0.8;
-        gameIntro.playLoop();
         setImage("p1.png");
         setLocation(397,3733);
         this.worldName = worldName;
@@ -104,7 +102,7 @@ public class Hero extends Mover {
                 String activeWorld = "MyWorld2";
                 setLocation(452, 1633);
             } 
-            if (coin == 3 && doorOpen == true){
+            if (coin == 5 && doorOpen == true){
                 //getWorld().removeObject(this);
                 doorPlay.play();
                 Greenfoot.setWorld(new MyWorld3());
@@ -116,7 +114,7 @@ public class Hero extends Mover {
             String activeWorld = "MyWorld2";
             setLocation(452, 1633);
         }
-        for (Actor lock : getIntersectingObjects(lock   .class)){
+        for (Actor lock : getIntersectingObjects(lock.class)){
             if(isTouching(lock.class))  
             {  
                 this.x = getX();
@@ -141,7 +139,7 @@ public class Hero extends Mover {
             getWorld().removeObjects(getWorld().getObjects(ClosedDoor.class));
             getWorld().removeObjects(getWorld().getObjects(ClosedDoorTop.class));
         }
-        if(isTouching(keyDoor.class) && (coin == 3)){
+        if(isTouching(keyDoor.class) && (coin == 5)){
             String activeWorld = "MyWorld2";
             boolean doorOpen = true;
             getWorld().removeObjects(getWorld().getObjects(keyDoor.class));

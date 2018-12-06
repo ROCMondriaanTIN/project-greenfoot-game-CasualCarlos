@@ -12,7 +12,7 @@ public class ResetButton extends Mover
      * Act - do whatever the ResetButton wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public String activeWorld = "MyWorld2";
+    public String activeWorld = "MyWorld3";
     public void act() 
     {
         reset();
@@ -21,9 +21,9 @@ public class ResetButton extends Mover
 
     public void reset(){
         if (Greenfoot.mouseClicked(this)){
-            if(activeWorld == "MyWorld2") {
-                Greenfoot.setWorld(new MyWorld2());
-                setLocation(452, 1633);
+            if(activeWorld == "MyWorld3") {
+                Greenfoot.setWorld(new MyWorld3());
+                setLocation(453, 2353);
             }
             else if(activeWorld == "MyWorld1"){
                 Greenfoot.setWorld(new MyWorld());
