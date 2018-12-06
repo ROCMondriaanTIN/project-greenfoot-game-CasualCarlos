@@ -10,13 +10,38 @@ public class Scorenbord extends Actor
 {
     public int leven = 2;
     ArrayList<Leven> hartje =new ArrayList<Leven>();
+    ArrayList<Letter> verzameldeLetters = new ArrayList<Letter>();
     public void act() 
     {
         hartjeLatenZien();
+      //  voegLetterToe('R');
     }    
+    
+    public void voegLetterToe(char letter){
+        //voegt een letter in de arraylist toe
+        verzameldeLetters.add(new Letter(letter, true));
+        laatlettersZien();
+    }
+    
+    public void laatlettersZien(){
+     //   System.out.println("show letters");
+      //  Letter let = verzameldeLetters.get(0);
+        getWorld().addObject(verzameldeLetters.get(0), 110, 101);
+        for(int a = 0; a < verzameldeLetters.size(); a++){
+            Letter ltr = new Letter('A', true);
+            ltr.setImage("hud_heartFull.png");
+            getWorld().addObject(ltr, 50+(a*60), 50);
+            verzameldeLetters.add(ltr);
+        }
+    }
     
     public void hartjeEraf(){
         leven--;
+        hartjeLatenZien();
+    }
+    
+    public void hartjeErbij(){
+        leven++;
         hartjeLatenZien();
     }
     

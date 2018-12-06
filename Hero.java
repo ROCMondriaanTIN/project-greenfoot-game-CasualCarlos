@@ -1,5 +1,6 @@
 
 import greenfoot.*;
+import java.util.*;
 /**
  *
  * @author R. Springer
@@ -61,7 +62,7 @@ public class Hero extends Mover {
             if (enemy != null) {
                 if(worldName == "World1"){
                     setLocation(x,y);
-                    scb.hartjeEraf();
+                    scb.hartjeErbij();
                     return;
                 }
                 if(worldName == "World2"){
@@ -137,14 +138,21 @@ public class Hero extends Mover {
     public String addLetter(){
         for(Letter verzamelLetter : getIntersectingObjects(Letter.class)){
             if(verzamelLetter != null) {
-                verzamel += verzamelLetter.letter;
-                GreenfootImage verzamelImg = verzamelLetter.getImage();
-                setImage(verzamel + ".png");
+                this.verzamel += verzamelLetter.letter;
+                // StringBuffer verzamelBuffer = new StringBuffer(verzamel);
+                // for(int i = 0; i < verzamelBuffer.capacity();i++) {
+                    
+                // }
+                // GreenfootImage verzamelImg = verzamelLetter.getImage();
+                // setImage(verzamel + ".png");
                 coinPlay.play();
-                //ltr.hartjeLatenZien();
-                getWorld().showText(verzamel, 100, 100);
-                coin ++;
                 getWorld().removeObject(verzamelLetter);
+                scb.voegLetterToe(verzamelLetter.letter);
+                
+                //ltr.hartjeLatenZien();
+                //getWorld().showText(verzamel, 100, 100);
+                coin ++;
+                
             }
         }
         return verzamel;

@@ -10,27 +10,38 @@ public class Letter extends Mover
 {
     char letter;
     GreenfootImage img;
+    boolean isOpscoreboard = false;
+    public Letter(char letter, boolean b){
+        this(letter);
+        this.isOpscoreboard = b;
+
+    }
+
     public Letter(char letter){
         this.letter = letter;
-        setImage(letter+".png");
+        setImage(letter + ".png");
     }
-    
+
     // public Letter(char letter, String img){
-        
+
     // }
-    
+
     public void act()
     {
-        applyVelocity();
+        if(!isOpscoreboard){
+            applyVelocity();
+        }else{
+            
+        }
     } 
-    
+
     // public void letterEraf(){
-        // LettersLatenZien();
+    // LettersLatenZien();
     // }
-    
+
     // public void LettersLatenZien(){
-        // setImage("A.png");
-        
+    // setImage("A.png");
+
     // }
-    
+
 }
