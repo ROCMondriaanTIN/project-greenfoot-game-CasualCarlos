@@ -16,7 +16,8 @@ public class Scorenbord extends Actor
         hartjeLatenZien();
         //  voegLetterToe('R');
     }    
-
+    
+    
     public void voegLetterToe(char letter){
         //voegt een letter in de arraylist toe
         verzameldeLetters.add(new Letter(letter, true));

@@ -14,7 +14,6 @@ public class Letter extends Mover
     public Letter(char letter, boolean b){
         this(letter);
         this.isOpscoreboard = b;
-
     }
 
     public Letter(char letter){

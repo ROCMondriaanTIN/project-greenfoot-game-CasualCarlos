@@ -7,7 +7,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MyWorld extends World {
 
     private CollisionEngine ce;
-    public String activeWorld = "MyWorld1";
+    public String worldName = "World1";
     /**
      * Constructor for objects of class MyWorld.
      *

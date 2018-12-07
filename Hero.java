@@ -25,7 +25,9 @@ public class Hero extends Mover {
     public String activeWorld = "";
 
     Scorenbord scb;
-
+    Gameover gov;
+    
+    
     public Hero(String worldName) {
         super();
         gravity = 9.8;
@@ -34,6 +36,15 @@ public class Hero extends Mover {
         setImage("p1.png");
         setLocation(397,3733);
         this.worldName = worldName;
+    }
+
+    public int levens(){
+        if(scb.leven == 0){
+            Greenfoot.setWorld(new Gameover(worldName));
+        } else{
+            
+        }
+        return scb.leven;
     }
 
     @Override
@@ -60,27 +71,31 @@ public class Hero extends Mover {
             if (enemy != null) {
                 if(worldName == "World1"){
                     setLocation(x,y);
-                    scb.hartjeErbij();
+                    scb.hartjeEraf();
+                    levens();
                     return;
                 }
                 if(worldName == "World2"){
                     setLocation(452,1633);
                     scb.hartjeEraf();
+                    levens();
                     return;
                 }
             }
         }
-        for (Actor WaterTile : getObjectsInRange(50, WaterTile.class)) {
+        for (Tile WaterTile : getObjectsInRange(50, WaterTile.class)) {
             if (WaterTile != null && WaterTile instanceof WaterTile) {
                 //getWorld().removeObject(this);
                 if(worldName == "World1"){
                     setLocation(397,3733);
                     scb.hartjeEraf();
+                    levens();
                     return;
                 }
                 if(worldName == "World2"){
                     setLocation(452, 1633);
                     scb.hartjeEraf();
+                    levens();
                     return;
                 }
             }
@@ -90,6 +105,8 @@ public class Hero extends Mover {
             if (LavaTile != null && LavaTile instanceof LavaTile) {
                 //getWorld().removeObject(this);
                 setLocation(452, 1633);
+                scb.hartjeEraf();
+                levens();
                 return;
             }
             break;
