@@ -98,6 +98,12 @@ public class Hero extends Mover {
                     levens();
                     return;
                 }
+                if(worldName == "World3"){
+                    setLocation(453, 2353);
+                    scb.hartjeEraf();
+                    levens();
+                    return;
+                }
             }
             break;
         }
@@ -116,20 +122,28 @@ public class Hero extends Mover {
                 //getWorld().removeObject(this);
                 doorPlay.play();
                 Greenfoot.setWorld(new MyWorld2());
-                String activeWorld = "MyWorld2";
                 setLocation(452, 1633);
             } 
             if (coin == 5 && doorOpen == true){
                 //getWorld().removeObject(this);
                 doorPlay.play();
                 Greenfoot.setWorld(new MyWorld3());
-                String activeWorld = "MyWorld3";
                 setLocation(452, 1633);
             } 
         }
         for (Actor door : getIntersectingObjects(fakeDoor.class)) {
-            String activeWorld = "MyWorld2";
-            setLocation(452, 1633);
+            if(worldName == "World2"){
+                    setLocation(452, 1633);
+                    scb.hartjeEraf();
+                    levens();
+                    return;
+                }
+            if(worldName == "World3"){
+                    setLocation(453, 2353);
+                    scb.hartjeEraf();
+                    levens();
+                    return;
+                }
         }
         for (Actor lock : getIntersectingObjects(lock.class)){
             if(isTouching(lock.class))  

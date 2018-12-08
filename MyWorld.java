@@ -111,7 +111,7 @@ public class MyWorld extends World {
         addObject(camera, 385, 3133);
         addObject(new ResetButton(), 395, 3600);
        // addObject(hero, 397, 3733);
-        addObject(hero, 1800, 2400);
+        addObject(hero, 397,3733);
         addObject(new Enemy(), 1654, 3587);
         addObject(new Letter('R'), 1895, 2533);
         addObject(new Letter('O'), 2017, 3133);

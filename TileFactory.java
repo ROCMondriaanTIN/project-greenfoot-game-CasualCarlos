@@ -158,8 +158,8 @@ public class TileFactory {
             tile.isSolid = true;
             break;
             case 36:
-            tile=new JumpTile("castleMid.png",TileEngine.TILE_WIDTH,TileEngine.TILE_HEIGHT);
-            tile.isSolid = true;
+            tile=new WaterTile("castleMid.png",TileEngine.TILE_WIDTH,TileEngine.TILE_HEIGHT);
+            tile.isSolid = false;
             break;
             case 37:
             tile=new JumpTile("castleRight.png",TileEngine.TILE_WIDTH,TileEngine.TILE_HEIGHT);
