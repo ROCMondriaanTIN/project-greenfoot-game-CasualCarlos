@@ -15,7 +15,6 @@ public class LevelButton extends Mover
         if(Greenfoot.mouseClicked(this)){
             gameIntro.play();
             Greenfoot.setWorld(new MyWorld());
-            String actieveWereld = "MyWorld1";
             return;
         }
     }    

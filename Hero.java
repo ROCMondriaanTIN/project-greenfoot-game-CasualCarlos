@@ -118,13 +118,13 @@ public class Hero extends Mover {
             break;
         }
         for (Actor door : getIntersectingObjects(door.class)) {
-            if (coin == 2 && doorOpen == true){
+            if (coin == 4 && doorOpen == true){
                 //getWorld().removeObject(this);
                 doorPlay.play();
                 Greenfoot.setWorld(new MyWorld2());
                 setLocation(452, 1633);
             } 
-            if (coin == 5 && doorOpen == true){
+            if (coin == 7 && doorOpen == true){
                 //getWorld().removeObject(this);
                 doorPlay.play();
                 Greenfoot.setWorld(new MyWorld3());
@@ -162,16 +162,24 @@ public class Hero extends Mover {
         return retval;
     }
 
+    
     public void openDoor(){
-        if(isTouching(keyDoor.class) && (coin == 2)){
+        if(isTouching(keyDoor.class) && (coin == 4)){
             String activeWorld = "MyWorld1";
             boolean doorOpen = true;
             getWorld().removeObjects(getWorld().getObjects(keyDoor.class));
             getWorld().removeObjects(getWorld().getObjects(ClosedDoor.class));
             getWorld().removeObjects(getWorld().getObjects(ClosedDoorTop.class));
         }
-        if(isTouching(keyDoor.class) && (coin == 5)){
+        if(isTouching(keyDoor.class) && (coin == 7)){
             String activeWorld = "MyWorld2";
+            boolean doorOpen = true;
+            getWorld().removeObjects(getWorld().getObjects(keyDoor.class));
+            getWorld().removeObjects(getWorld().getObjects(ClosedDoor.class));
+            getWorld().removeObjects(getWorld().getObjects(ClosedDoorTop.class));
+        }
+        if(isTouching(keyDoor.class) && (coin == 10)){
+            String activeWorld = "MyWorld3";
             boolean doorOpen = true;
             getWorld().removeObjects(getWorld().getObjects(keyDoor.class));
             getWorld().removeObjects(getWorld().getObjects(ClosedDoor.class));
@@ -212,6 +220,9 @@ public class Hero extends Mover {
             else{
                 inAir = false;
             }
+        }
+        if (Greenfoot.isKeyDown("h")) {
+            velocityY = -14;
         }
         if (Greenfoot.isKeyDown("a")) {
             velocityX = -4;

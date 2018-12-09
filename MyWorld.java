@@ -113,13 +113,15 @@ public class MyWorld extends World {
        // addObject(hero, 397, 3733);
         addObject(hero, 397,3733);
         addObject(new Enemy(), 1654, 3587);
-        addObject(new Letter('R'), 1895, 2533);
-        addObject(new Letter('O'), 2017, 3133);
+        addObject(new Enemy(), 1850, 2688);
+        addObject(new Letter('L'), 1895, 2533);
+        addObject(new Letter('A'), 1285, 3133);
+        addObject(new Letter('O'), 1387, 3493);
+        addObject(new Letter('G'), 679, 3733);
         addObject(new lock(), 1490, 3206);
         addObject(new ClosedDoor(), 2060, 2725);
         addObject(new ClosedDoorTop(), 2060,2655);
         addObject(new door(), 2060, 2725);
-        addObject(new keyDoor(), 1850, 2725);
         addObject(new keyDoor(), 2320, 2899);
         addObject(new doorTop(), 2060,2655);
         // Initialiseren van de CollisionEngine zodat de speler niet door de tile heen kan lopen.

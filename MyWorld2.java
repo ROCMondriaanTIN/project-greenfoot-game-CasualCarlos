@@ -93,11 +93,11 @@ public class MyWorld2 extends World {
         addObject(new Enemy(), 1730, 1848);
         addObject(new fakeDoor(), 4104, 2189);
         addObject(new fakeDoor(), 389, 2488);
-        addObject(new ClosedDoor(), 3984, 5553);
+        addObject(new ClosedDoor(), 3984, 567);
         addObject(new ClosedDoorTop(), 3984, 504);
-        addObject(new door(), 3984, 560);
+        addObject(new door(), 3984, 567);
         addObject(new doorTop(), 3984, 504);
-        addObject(new keyDoor(), 3890, 568);
+        addObject(new keyDoor(), 3883, 568);
         addObject(new Letter('A'), 1350, 2413);
         addObject(new Letter('D'), 633, 2353);
         addObject(new Letter('O'), 677, 2353);

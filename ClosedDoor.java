@@ -14,16 +14,9 @@ public class ClosedDoor extends Mover
      */
     public void act() 
     {
-        removeDoor();
         applyVelocity();
         boolean coinCatched = false;
     }    
 
-    public void removeDoor(){
-        if (Greenfoot.mouseClicked(this)){
-            setLocation(7000, 5000);
-            return;
-        }
-}
 }
 
