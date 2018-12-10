@@ -16,7 +16,7 @@ public class Hero extends Mover {
     public static int coin;
     public boolean inAir;
     public int x = 397;
-    public boolean doorOpen = true;
+    public String doorOpen = "false";
     public int y = 3733;
     public String verzamel = "";
     private int frame = 1;
@@ -118,13 +118,13 @@ public class Hero extends Mover {
             break;
         }
         for (Actor door : getIntersectingObjects(door.class)) {
-            if (coin == 4 && doorOpen == true){
+            if (coin == 4 && doorOpen == "true"){
                 //getWorld().removeObject(this);
                 doorPlay.play();
                 Greenfoot.setWorld(new MyWorld2());
                 setLocation(452, 1633);
             } 
-            if (coin == 7 && doorOpen == true){
+            if (coin == 7 && doorOpen == "true"){
                 //getWorld().removeObject(this);
                 doorPlay.play();
                 Greenfoot.setWorld(new MyWorld3());
@@ -166,21 +166,21 @@ public class Hero extends Mover {
     public void openDoor(){
         if(isTouching(keyDoor.class) && (coin == 4)){
             String activeWorld = "MyWorld1";
-            boolean doorOpen = true;
+            doorOpen = "true";
             getWorld().removeObjects(getWorld().getObjects(keyDoor.class));
             getWorld().removeObjects(getWorld().getObjects(ClosedDoor.class));
             getWorld().removeObjects(getWorld().getObjects(ClosedDoorTop.class));
         }
         if(isTouching(keyDoor.class) && (coin == 7)){
             String activeWorld = "MyWorld2";
-            boolean doorOpen = true;
+            doorOpen = "true";
             getWorld().removeObjects(getWorld().getObjects(keyDoor.class));
             getWorld().removeObjects(getWorld().getObjects(ClosedDoor.class));
             getWorld().removeObjects(getWorld().getObjects(ClosedDoorTop.class));
         }
         if(isTouching(keyDoor.class) && (coin == 10)){
             String activeWorld = "MyWorld3";
-            boolean doorOpen = true;
+            doorOpen = "true";
             getWorld().removeObjects(getWorld().getObjects(keyDoor.class));
             getWorld().removeObjects(getWorld().getObjects(ClosedDoor.class));
             getWorld().removeObjects(getWorld().getObjects(ClosedDoorTop.class));
