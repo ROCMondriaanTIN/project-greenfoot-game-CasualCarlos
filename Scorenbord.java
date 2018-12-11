@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
+import java.util.Collections;
 /**
  * Write a description of class Scorenbord here.
  * 
@@ -11,12 +12,13 @@ public class Scorenbord extends Actor
     public int leven = 2;
     ArrayList<Leven> hartje =new ArrayList<Leven>();
     ArrayList<Letter> verzameldeLetters = new ArrayList<Letter>();
+    public String wordOne = "";
+    public String worldName = "";
     public void act() 
     {
         hartjeLatenZien();
         //  voegLetterToe('R');
     }    
-    
     
     public void voegLetterToe(char letter){
         //voegt een letter in de arraylist toe

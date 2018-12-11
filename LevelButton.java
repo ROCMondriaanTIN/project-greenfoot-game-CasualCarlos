@@ -9,11 +9,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class LevelButton extends Mover
 {
     GreenfootSound gameIntro = new GreenfootSound("sounds/gameStart.au");
+    GreenfootSound gameVoice = new GreenfootSound("sounds/testing4.au");
     public void act() 
     {
         applyVelocity();
         if(Greenfoot.mouseClicked(this)){
             gameIntro.play();
+            gameVoice.play();
             Greenfoot.setWorld(new MyWorld());
             return;
         }

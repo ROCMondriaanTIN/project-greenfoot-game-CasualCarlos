@@ -130,6 +130,12 @@ public class Hero extends Mover {
                 Greenfoot.setWorld(new MyWorld3());
                 setLocation(452, 1633);
             } 
+            // if (coin == 7 && doorOpen == "true"){
+                // //getWorld().removeObject(this);
+                // doorPlay.play();
+                // Greenfoot.setWorld(new MyWorld2());
+                // setLocation(452, 1633);
+            // } 
         }
         for (Actor door : getIntersectingObjects(fakeDoor.class)) {
             if(worldName == "World2"){
