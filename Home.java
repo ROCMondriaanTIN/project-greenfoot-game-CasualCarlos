@@ -18,7 +18,7 @@ public class Home extends Mover
         if(Greenfoot.mouseClicked(this)){
             Greenfoot.setWorld(new Start());
         }
-        img.scale(395, 73);
+        img.scale(414, 78);
         setImage(img);
     }    
 }

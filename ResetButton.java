@@ -12,11 +12,11 @@ public class ResetButton extends Mover
      * Act - do whatever the ResetButton wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public String worldName = "World3";
-    Hero hr = new Hero("World3");
+    public String worldName = "World2";
+    Hero hr = new Hero("World2");
     public void act() 
     {
-        reset("World3");
+        reset("World2");
         applyVelocity();
     }  
 

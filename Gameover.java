@@ -13,10 +13,10 @@ public class Gameover extends World
     public Gameover(String worldName)
     {    
         super(1000, 800, 1, false); 
-        this.setBackground("endScreen.png");
+        this.setBackground("gameOver.png");
         this.worldName = worldName;
         Home home = new Home();
-        addObject(home,712,550);
+        addObject(home,710,550);
         
         Continue ctn = new Continue(worldName);
         addObject(ctn,288, 550);

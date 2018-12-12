@@ -18,7 +18,7 @@ public class Continue extends Mover
     public void act() 
     {
     applyVelocity();
-    imgA.scale(398, 73);
+    imgA.scale(414, 78);
     setImage(imgA);
         if(Greenfoot.mouseClicked(this))
         { 
