@@ -34,12 +34,7 @@ public class Continue extends Mover
             if(worldName=="World3")
             {
               Greenfoot.setWorld(new MyWorld3());    
-            }
-            
-            // if(activeWorld=="MyWorld4")
-            // {
-               // Greenfoot.setWorld(new MyWorld4());   
-            // }
+            } 
         }   
     } 
  }
