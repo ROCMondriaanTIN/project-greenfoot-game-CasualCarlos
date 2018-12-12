@@ -9,6 +9,8 @@ public class Hero extends Mover {
     GreenfootSound coinPlay = new GreenfootSound("sounds/smb2_coin.wav");
     GreenfootSound doorPlay = new GreenfootSound("sounds/nsmbwiiDoor3.wav");
     GreenfootSound rainPlay = new GreenfootSound("sounds/rain.mp3");
+    GreenfootSound deadSound = new GreenfootSound("sounds/youDied.au");
+    GreenfootSound waveySound = new GreenfootSound("sounds/nsmbwiiEnemyBattleStart.wav");
     private final double gravity;
     private final double acc;
     public String worldName = "";
@@ -23,7 +25,7 @@ public class Hero extends Mover {
     private int jumpFrame = 1;
     public String word;
     public String activeWorld = "";
-
+    
     Scorenbord scb;
     Gameover gov;
     
@@ -73,12 +75,14 @@ public class Hero extends Mover {
                     setLocation(x,y);
                     scb.hartjeEraf();
                     levens();
+                    deadSound.play();
                     return;
                 }
                 if(worldName == "World2"){
                     setLocation(452,1633);
                     scb.hartjeEraf();
                     levens();
+                    deadSound.play();
                     return;
                 }
             }
@@ -90,18 +94,21 @@ public class Hero extends Mover {
                     setLocation(397,3733);
                     scb.hartjeEraf();
                     levens();
+                    deadSound.play();
                     return;
                 }
                 if(worldName == "World2"){
                     setLocation(452, 1633);
                     scb.hartjeEraf();
                     levens();
+                    deadSound.play();
                     return;
                 }
                 if(worldName == "World3"){
                     setLocation(453, 2353);
                     scb.hartjeEraf();
                     levens();
+                    deadSound.play();
                     return;
                 }
             }
@@ -113,6 +120,7 @@ public class Hero extends Mover {
                 setLocation(452, 1633);
                 scb.hartjeEraf();
                 levens();
+                deadSound.play();
                 return;
             }
             break;
@@ -123,12 +131,16 @@ public class Hero extends Mover {
                 doorPlay.play();
                 Greenfoot.setWorld(new MyWorld2());
                 setLocation(452, 1633);
+                waveySound.setVolume(65);
+                waveySound.play();
             } 
             if (coin == 7 && doorOpen == "true"){
                 //getWorld().removeObject(this);
                 doorPlay.play();
                 Greenfoot.setWorld(new MyWorld3());
                 setLocation(452, 1633);
+                waveySound.setVolume(65);
+                waveySound.play();
             } 
              if (coin == 10 && doorOpen == "true"){
                  //getWorld().removeObject(this);

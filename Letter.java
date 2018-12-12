@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class Letter extends Mover
 {
     char letter;
-    GreenfootImage img;
     boolean isOpscoreboard = false;
     public Letter(char letter, boolean b){
         this(letter);

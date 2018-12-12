@@ -72,7 +72,7 @@ public class MyWorld2 extends World {
 {93,93,93,93,93,93,93,93,93,93,93,93,19,19,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90},
 {93,93,93,93,93,93,93,93,93,93,93,93,19,19,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90},
 };
-        setPaintOrder(A.class, B.class, Hero.class, ClosedDoor.class, ClosedDoorTop.class, doorTop.class, door.class);
+        setPaintOrder(Hero.class, ClosedDoor.class, ClosedDoorTop.class, doorTop.class, door.class);
         // Declareren en initialiseren van de TileEngine klasse om de map aan de world toe te voegen
         TileEngine te = new TileEngine(this, 60, 60, map);
         // Declarenre en initialiseren van de camera klasse met de TileEngine klasse 
